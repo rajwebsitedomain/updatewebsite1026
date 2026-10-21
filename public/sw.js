@@ -2,7 +2,7 @@
 // Service Worker — Full Offline Support for Rajvardhan's Portfolio
 // ============================================================
 
-const CACHE_NAME = 'raj-portfolio-v2';
+const CACHE_NAME = 'raj-portfolio-v3';
 
 // Static routes and assets to precache on first load
 const PRECACHE_ASSETS = [
@@ -19,7 +19,9 @@ const PRECACHE_ASSETS = [
   '/projects/thikana-dhabla-ghosi',
   '/projects/bettergrowth-solutions',
   '/projects/deep-architects-admin-panel',
+  '/favicon.png',
   '/logo.png',
+  '/logo.webp',
   '/rajcv.pdf',
   '/llms.txt',
   '/humans.txt',
