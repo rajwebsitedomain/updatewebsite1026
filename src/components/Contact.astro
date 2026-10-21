@@ -189,6 +189,14 @@
       formData.append('access_key', 'a4c3f2d9-4fc9-4ea9-882f-4884bf88d3bb');
       formData.append('from_name', 'Rajvardhan Portfolio Contact');
 
+      if (!navigator.onLine) {
+        formStatus.textContent = '⚡ You are offline. Please reconnect to submit, or email directly: rajvardhancoder@gmail.com';
+        formStatus.className = 'block text-yellow-800 bg-yellow-100 border border-yellow-400 p-2 font-bold text-xs uppercase text-center';
+        submitBtn.disabled = false;
+        btnText.textContent = 'Submit Message';
+        return;
+      }
+
       submitBtn.disabled = true;
       btnText.textContent = 'Sending...';
       formStatus.classList.add('hidden');
