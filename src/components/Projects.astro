@@ -35,8 +35,8 @@ import { projects } from '../data/projects';
               project.badgeColor === 'muted' ? 'bg-neo-muted text-black' :
               project.badgeColor === 'mint' ? 'bg-neo-mint text-black' : 'bg-neo-dark text-white'
             }`}>
-              <span class="font-mono font-bold text-sm">#{project.number}</span>
-              <span class="bg-black text-white px-2.5 py-1 text-xs font-bold uppercase tracking-wider">
+              <span class="font-mono font-bold text-sm sm:text-base">#{project.number}</span>
+              <span class="bg-black text-white px-3 py-1 text-xs sm:text-sm font-bold uppercase tracking-wider">
                 {project.category}
               </span>
             </div>
@@ -56,7 +56,7 @@ import { projects } from '../data/projects';
               <!-- Tags -->
               <div class="flex flex-wrap gap-2 mb-5">
                 {project.tags.map((tag) => (
-                  <span class="bg-gray-100 border border-black px-2.5 py-1 text-xs font-bold uppercase text-gray-800">
+                  <span class="bg-gray-100 border border-black px-3 py-1 text-xs sm:text-sm font-bold uppercase text-gray-800">
                     {tag}
                   </span>
                 ))}
@@ -67,7 +67,7 @@ import { projects } from '../data/projects';
                 {project.metrics.map((metric) => (
                   <div class="text-center">
                     <span class="block text-sm sm:text-base font-black text-black">{metric.value}</span>
-                    <span class="block text-[11px] sm:text-xs font-bold text-gray-600 uppercase truncate mt-0.5">{metric.label}</span>
+                    <span class="block text-xs sm:text-sm font-bold text-gray-600 uppercase truncate mt-0.5">{metric.label}</span>
                   </div>
                 ))}
               </div>

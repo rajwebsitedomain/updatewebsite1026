@@ -38,10 +38,10 @@ import { skillCategories } from '../data/skills';
                 <span class="text-2xl shrink-0" aria-hidden="true">{skill.icon}</span>
                 <div class="min-w-0 flex-1">
                   <div class="flex items-center justify-between">
-                    <span class="font-bold text-xs sm:text-sm uppercase tracking-wide text-black">{skill.name}</span>
-                    <span class="text-xs font-mono font-bold text-gray-600">{skill.level}%</span>
+                    <span class="font-bold text-sm sm:text-base uppercase tracking-wide text-black">{skill.name}</span>
+                    <span class="text-xs sm:text-sm font-mono font-bold text-gray-600">{skill.level}%</span>
                   </div>
-                  <p class="text-xs text-gray-600 truncate mt-1" title={skill.detail}>{skill.detail}</p>
+                  <p class="text-xs sm:text-sm text-gray-600 truncate mt-1" title={skill.detail}>{skill.detail}</p>
                   <!-- Progress bar -->
                   <div class="w-full bg-gray-200 h-2 border border-black mt-2.5 overflow-hidden">
                     <div class="bg-neo-accent h-full" style={`width: ${skill.level}%`}></div>
