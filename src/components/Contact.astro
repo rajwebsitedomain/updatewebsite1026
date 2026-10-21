@@ -190,8 +190,8 @@
       formData.append('from_name', 'Rajvardhan Portfolio Contact');
 
       if (!navigator.onLine) {
-        formStatus.textContent = '⚡ You are offline. Please reconnect to submit, or email directly: rajvardhancoder@gmail.com';
-        formStatus.className = 'block text-yellow-800 bg-yellow-100 border border-yellow-400 p-2 font-bold text-xs uppercase text-center';
+        formStatus.textContent = 'Unable to send message right now. Please email directly: rajvardhancoder@gmail.com';
+        formStatus.className = 'block text-red-700 bg-red-100 border border-red-400 p-2 font-bold text-xs uppercase text-center';
         submitBtn.disabled = false;
         btnText.textContent = 'Submit Message';
         return;

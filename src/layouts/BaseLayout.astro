@@ -33,61 +33,12 @@ const { title, description, canonicalUrl, ogImage, type, jsonLd } = Astro.props;
     </main>
     <Footer />
 
-    <!-- Offline Status Toast (Accessible & Discrete) -->
-    <div
-      id="offline-indicator"
-      role="status"
-      aria-live="polite"
-      class="fixed bottom-4 right-4 z-50 bg-black text-white border-2 border-black px-3.5 py-2 text-xs font-bold uppercase tracking-wider shadow-neo hidden items-center gap-2"
-    >
-      <span class="w-2.5 h-2.5 rounded-full bg-neo-secondary border border-black inline-block"></span>
-      <span id="offline-text">⚡ Offline Mode (Cached)</span>
-    </div>
-
-    <!-- Service Worker Registration & Offline Handler -->
+    <!-- Silent Service Worker Registration for Offline Access -->
     <script is:inline>
-      // 1. Register Service Worker for 100% offline access
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
-          navigator.serviceWorker
-            .register('/sw.js')
-            .then((reg) => {
-              // Successfully registered offline service worker
-            })
-            .catch((err) => {
-              console.warn('[SW Registration Error]', err);
-            });
+          navigator.serviceWorker.register('/sw.js').catch(() => {});
         });
-      }
-
-      // 2. Network status indicators
-      const indicator = document.getElementById('offline-indicator');
-      const text = document.getElementById('offline-text');
-
-      function updateOnlineStatus() {
-        if (!indicator) return;
-        if (!navigator.onLine) {
-          indicator.classList.remove('hidden');
-          indicator.classList.add('flex');
-          if (text) text.textContent = '⚡ Offline Mode (Cached)';
-          indicator.className = 'fixed bottom-4 right-4 z-50 bg-black text-white border-2 border-black px-3.5 py-2 text-xs font-bold uppercase tracking-wider shadow-neo flex items-center gap-2';
-        } else {
-          if (!indicator.classList.contains('hidden')) {
-            if (text) text.textContent = '✅ Back Online';
-            indicator.className = 'fixed bottom-4 right-4 z-50 bg-emerald-600 text-white border-2 border-black px-3.5 py-2 text-xs font-bold uppercase tracking-wider shadow-neo flex items-center gap-2';
-            setTimeout(() => {
-              indicator.classList.add('hidden');
-              indicator.classList.remove('flex');
-            }, 2500);
-          }
-        }
-      }
-
-      window.addEventListener('online', updateOnlineStatus);
-      window.addEventListener('offline', updateOnlineStatus);
-      // Run on initial page load if already offline
-      if (!navigator.onLine) {
-        updateOnlineStatus();
       }
     </script>
   </body>
