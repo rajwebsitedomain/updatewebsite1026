@@ -2,72 +2,72 @@
 import { projects } from '../data/projects';
 ---
 
-<section id="projects" class="py-14 md:py-20 border-b-2 border-black bg-neo-bg">
+<section id="projects" class="py-16 md:py-24 border-b-2 border-black bg-neo-bg">
   <div class="max-w-6xl mx-auto px-4 sm:px-6">
     
     <!-- Section Header -->
-    <div class="mb-10 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+    <div class="mb-12 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
       <div>
-        <div class="inline-block bg-neo-accent text-white border-2 border-black px-3 py-1 shadow-neo-sm rotate-1 mb-3">
-          <span class="font-bold uppercase tracking-wider text-xs">03 — Portfolio</span>
+        <div class="inline-block bg-neo-accent text-white border-2 border-black px-3.5 py-1.5 shadow-neo-sm rotate-1 mb-3">
+          <span class="font-bold uppercase tracking-wider text-xs sm:text-sm">03 — Portfolio</span>
         </div>
-        <h2 class="text-2xl sm:text-3xl md:text-4xl font-black uppercase tracking-tight text-black">
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight text-black">
           <span>Featured</span>
-          <span class="bg-neo-secondary px-2.5 py-0.5 border-2 border-black inline-block -rotate-1 shadow-neo-sm ml-1">
+          <span class="bg-neo-secondary px-3 py-1 border-2 border-black inline-block -rotate-1 shadow-neo ml-1">
             Projects
           </span>
         </h2>
       </div>
-      <p class="text-xs sm:text-sm font-medium text-gray-700 max-w-sm">
+      <p class="text-sm sm:text-base font-medium text-gray-700 max-w-md">
         Production cloud systems, automated CI/CD pipelines, and freelance deliveries with architecture case studies.
       </p>
     </div>
 
     <!-- Projects Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-7">
       {projects.map((project) => (
         <article class="bg-white border-2 border-black shadow-neo hover:-translate-y-1 hover:shadow-neo-lg transition-all flex flex-col justify-between">
           <div>
             <!-- Project Header -->
-            <div class={`border-b-2 border-black px-4 py-2.5 flex items-center justify-between ${
+            <div class={`border-b-2 border-black px-5 py-3 flex items-center justify-between ${
               project.badgeColor === 'accent' ? 'bg-neo-accent text-white' :
               project.badgeColor === 'secondary' ? 'bg-neo-secondary text-black' :
               project.badgeColor === 'muted' ? 'bg-neo-muted text-black' :
               project.badgeColor === 'mint' ? 'bg-neo-mint text-black' : 'bg-neo-dark text-white'
             }`}>
-              <span class="font-mono font-bold text-xs">#{project.number}</span>
-              <span class="bg-black text-white px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider">
+              <span class="font-mono font-bold text-sm">#{project.number}</span>
+              <span class="bg-black text-white px-2.5 py-1 text-xs font-bold uppercase tracking-wider">
                 {project.category}
               </span>
             </div>
 
             <!-- Project Content -->
-            <div class="p-5">
-              <h3 class="text-lg font-black uppercase tracking-tight mb-2 text-black hover:text-neo-accent transition-colors">
+            <div class="p-6">
+              <h3 class="text-xl sm:text-2xl font-black uppercase tracking-tight mb-2.5 text-black hover:text-neo-accent transition-colors">
                 <a href={`/projects/${project.slug}`}>
                   {project.title}
                 </a>
               </h3>
 
-              <p class="text-xs sm:text-sm text-gray-700 font-medium leading-relaxed mb-4">
+              <p class="text-sm sm:text-base text-gray-700 font-medium leading-relaxed mb-5">
                 {project.shortDescription}
               </p>
 
               <!-- Tags -->
-              <div class="flex flex-wrap gap-1.5 mb-4">
+              <div class="flex flex-wrap gap-2 mb-5">
                 {project.tags.map((tag) => (
-                  <span class="bg-gray-100 border border-black px-2 py-0.5 text-[11px] font-bold uppercase text-gray-800">
+                  <span class="bg-gray-100 border border-black px-2.5 py-1 text-xs font-bold uppercase text-gray-800">
                     {tag}
                   </span>
                 ))}
               </div>
 
               <!-- Metrics Row -->
-              <div class="grid grid-cols-3 gap-2 border-t border-gray-200 pt-3 mb-2">
+              <div class="grid grid-cols-3 gap-3 border-t-2 border-gray-200 pt-4 mb-2">
                 {project.metrics.map((metric) => (
                   <div class="text-center">
-                    <span class="block text-xs font-black text-black">{metric.value}</span>
-                    <span class="block text-[9px] font-semibold text-gray-500 uppercase truncate">{metric.label}</span>
+                    <span class="block text-sm sm:text-base font-black text-black">{metric.value}</span>
+                    <span class="block text-[11px] sm:text-xs font-bold text-gray-600 uppercase truncate mt-0.5">{metric.label}</span>
                   </div>
                 ))}
               </div>
@@ -75,10 +75,10 @@ import { projects } from '../data/projects';
           </div>
 
           <!-- Project Actions Footer -->
-          <div class="px-5 pb-5 pt-2 flex items-center gap-2 border-t border-gray-100">
+          <div class="px-6 pb-6 pt-3 flex items-center gap-3 border-t border-gray-100">
             <a
               href={`/projects/${project.slug}`}
-              class="flex-1 bg-black text-white border border-black py-2 text-center text-xs font-bold uppercase tracking-wider shadow-neo-sm hover:bg-gray-800 transition-all"
+              class="flex-1 bg-black text-white border-2 border-black py-2.5 text-center text-sm font-bold uppercase tracking-wider shadow-neo-sm hover:bg-gray-800 transition-all"
             >
               Case Study →
             </a>
@@ -88,11 +88,11 @@ import { projects } from '../data/projects';
                 href={project.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="bg-white text-black border border-black px-3 py-2 text-center text-xs font-bold uppercase tracking-wider shadow-neo-sm hover:bg-neo-secondary transition-all inline-flex items-center gap-1"
+                class="bg-white text-black border-2 border-black px-4 py-2.5 text-center text-sm font-bold uppercase tracking-wider shadow-neo-sm hover:bg-neo-secondary transition-all inline-flex items-center gap-1.5"
                 aria-label={`GitHub repo for ${project.title}`}
               >
                 <span>Code</span>
-                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
                 </svg>
               </a>

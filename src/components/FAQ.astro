@@ -2,39 +2,39 @@
 import { faqs } from '../data/faq';
 ---
 
-<section id="faq" class="py-14 md:py-20 border-b-2 border-black bg-neo-bg">
+<section id="faq" class="py-16 md:py-24 border-b-2 border-black bg-neo-bg">
   <div class="max-w-4xl mx-auto px-4 sm:px-6">
     
     <!-- Section Header -->
-    <div class="mb-10 text-center">
-      <div class="inline-block bg-neo-secondary border-2 border-black px-3 py-1 shadow-neo-sm rotate-1 mb-3">
-        <span class="font-bold uppercase tracking-wider text-xs">06 — Q&A / AI Answers</span>
+    <div class="mb-12 text-center">
+      <div class="inline-block bg-neo-secondary border-2 border-black px-3.5 py-1.5 shadow-neo-sm rotate-1 mb-3">
+        <span class="font-bold uppercase tracking-wider text-xs sm:text-sm">06 — Q&A / AI Answers</span>
       </div>
-      <h2 class="text-2xl sm:text-3xl md:text-4xl font-black uppercase tracking-tight text-black">
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight text-black">
         <span>Frequently Asked</span>
-        <span class="bg-neo-accent text-white px-2.5 py-0.5 border-2 border-black inline-block -rotate-1 shadow-neo-sm ml-1">
+        <span class="bg-neo-accent text-white px-3 py-1 border-2 border-black inline-block -rotate-1 shadow-neo ml-1">
           Questions
         </span>
       </h2>
-      <p class="text-xs sm:text-sm font-medium text-gray-700 mt-2 max-w-lg mx-auto">
+      <p class="text-sm sm:text-base font-medium text-gray-700 mt-2.5 max-w-lg mx-auto">
         Clear, direct answers regarding capabilities, cloud consulting, automation projects, and hiring.
       </p>
     </div>
 
     <!-- FAQ Accordion List -->
-    <div class="space-y-3">
+    <div class="space-y-4">
       {faqs.map((faq, index) => (
-        <details class="group bg-white border-2 border-black shadow-neo-sm p-4 open:shadow-neo transition-all">
-          <summary class="font-bold text-sm sm:text-base uppercase tracking-tight text-black cursor-pointer list-none flex items-center justify-between gap-3">
-            <span class="flex items-center gap-2">
-              <span class="text-xs font-mono font-black text-neo-accent">Q{index + 1}.</span>
+        <details class="group bg-white border-2 border-black shadow-neo-sm p-5 sm:p-6 open:shadow-neo transition-all">
+          <summary class="font-bold text-base sm:text-lg uppercase tracking-tight text-black cursor-pointer list-none flex items-center justify-between gap-3">
+            <span class="flex items-center gap-2.5">
+              <span class="text-sm font-mono font-black text-neo-accent">Q{index + 1}.</span>
               <span>{faq.question}</span>
             </span>
-            <span class="text-lg font-black transition-transform duration-200 group-open:rotate-45 shrink-0">
+            <span class="text-xl font-black transition-transform duration-200 group-open:rotate-45 shrink-0">
               +
             </span>
           </summary>
-          <div class="mt-3 pt-3 border-t border-gray-200 text-xs sm:text-sm font-medium leading-relaxed text-gray-800">
+          <div class="mt-4 pt-4 border-t-2 border-gray-100 text-sm sm:text-base font-medium leading-relaxed text-gray-800">
             {faq.answer}
           </div>
         </details>
