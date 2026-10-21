@@ -1,0 +1,227 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { skillCategories } from '../data/skills';
+
+const pageTitle = "About Rajvardhan Singh Badgujar | Cloud & DevOps Engineer";
+const pageDescription = "Learn about Rajvardhan Singh Badgujar: Cloud & DevOps Engineer, philosophy, background, education at Holkar Science College, and production milestones.";
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://rajvardhansingh.in/' },
+    { '@type': 'ListItem', position: 2, name: 'About', item: 'https://rajvardhansingh.in/about' },
+  ],
+};
+
+const aboutPageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'AboutPage',
+  name: pageTitle,
+  description: pageDescription,
+  mainEntity: {
+    '@type': 'Person',
+    name: 'Rajvardhan Singh Badgujar',
+    jobTitle: 'Cloud & DevOps Engineer',
+    alumniOf: 'Govt. Holkar Science College, Indore',
+    url: 'https://rajvardhansingh.in',
+    sameAs: [
+      'https://github.com/singhrajvardhan',
+      'https://www.linkedin.com/in/rajvardhan-singh-badgujar/',
+    ],
+  },
+};
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  canonicalUrl="/about"
+  jsonLd={[breadcrumbSchema, aboutPageSchema]}
+>
+  <div class="pt-24 pb-16 md:pt-32 md:pb-24 max-w-4xl mx-auto px-4 sm:px-6">
+    
+    <!-- Breadcrumb -->
+    <nav class="mb-6 flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-gray-500" aria-label="Breadcrumb">
+      <a href="/" class="hover:text-black">Home</a>
+      <span>/</span>
+      <span class="text-black bg-neo-secondary px-1.5 py-0.5 border border-black">About Me</span>
+    </nav>
+
+    <!-- Main Profile Card -->
+    <header class="bg-white border-2 border-black p-6 sm:p-10 shadow-neo mb-10">
+      <div class="flex flex-wrap items-center gap-2 mb-4">
+        <span class="bg-neo-accent text-white px-3 py-0.5 text-xs font-bold uppercase tracking-wider border border-black shadow-neo-sm">
+          Engineering Profile
+        </span>
+        <span class="bg-neo-secondary text-black px-3 py-0.5 text-xs font-bold uppercase tracking-wider border border-black shadow-neo-sm">
+          Indore, India
+        </span>
+      </div>
+
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight text-black mb-4">
+        Rajvardhan Singh Badgujar
+      </h1>
+
+      <p class="text-base sm:text-lg font-medium leading-relaxed text-gray-800 mb-6">
+        I am a <strong class="bg-neo-secondary px-1 border-b-2 border-black">Cloud & DevOps Engineer</strong> and final-year BCA student at Govt. Holkar Science College, Indore, India. I specialize in architecting cloud infrastructure, automating zero-downtime deployment pipelines, and building resilient distributed systems.
+      </p>
+
+      <!-- Key Metrics Row -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 border-y-2 border-black py-5">
+        <div class="text-center">
+          <span class="block text-2xl sm:text-3xl font-black text-neo-accent">7+</span>
+          <span class="block text-[11px] font-bold uppercase tracking-wider text-gray-600 mt-1">Cloud Systems</span>
+        </div>
+        <div class="text-center">
+          <span class="block text-2xl sm:text-3xl font-black text-neo-secondary">4+</span>
+          <span class="block text-[11px] font-bold uppercase tracking-wider text-gray-600 mt-1">Client Platforms</span>
+        </div>
+        <div class="text-center">
+          <span class="block text-2xl sm:text-3xl font-black text-neo-muted">80%</span>
+          <span class="block text-[11px] font-bold uppercase tracking-wider text-gray-600 mt-1">Faster Deployments</span>
+        </div>
+        <div class="text-center">
+          <span class="block text-2xl sm:text-3xl font-black text-black">0s</span>
+          <span class="block text-[11px] font-bold uppercase tracking-wider text-gray-600 mt-1">Downtime Target</span>
+        </div>
+      </div>
+
+      <div class="flex flex-wrap gap-3 mt-6">
+        <a
+          href="/rajcv.pdf"
+          download="Rajvardhan_Singh_CV.pdf"
+          class="bg-neo-secondary text-black border-2 border-black px-5 py-2.5 font-bold uppercase text-xs tracking-wider shadow-neo-sm hover:bg-yellow-400 transition-all inline-flex items-center gap-1.5"
+        >
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+          </svg>
+          <span>Download Resume (PDF)</span>
+        </a>
+        <a
+          href="/#contact"
+          class="bg-black text-white border-2 border-black px-5 py-2.5 font-bold uppercase text-xs tracking-wider shadow-neo-sm hover:bg-gray-800 transition-all"
+        >
+          Get in Touch →
+        </a>
+      </div>
+    </header>
+
+    <!-- Engineering Philosophy -->
+    <section class="bg-white border-2 border-black p-6 sm:p-8 shadow-neo mb-10">
+      <h2 class="text-base font-black uppercase tracking-wider mb-4 border-b-2 border-black pb-2 text-black flex items-center gap-2">
+        <span class="w-2.5 h-2.5 bg-neo-accent inline-block border border-black"></span>
+        <span>Architectural Philosophy</span>
+      </h2>
+
+      <blockquote class="bg-neo-bg border-l-4 border-black p-4 font-bold text-sm sm:text-base italic text-gray-800 mb-6">
+        "If you have to do it twice, automate it. Infrastructure should be declarative, reproducible, and monitored from day one."
+      </blockquote>
+
+      <div class="grid sm:grid-cols-2 gap-4 text-xs sm:text-sm">
+        <div class="border border-black p-3.5 bg-neo-bg">
+          <h3 class="font-bold text-xs uppercase mb-1 flex items-center gap-1.5">
+            <span>🏗️</span> Infrastructure as Code
+          </h3>
+          <p class="text-gray-700 font-medium">
+            Manual server provisioning invites drift and outages. I write modular Terraform and CloudFormation templates with version-controlled state and automated linting.
+          </p>
+        </div>
+
+        <div class="border border-black p-3.5 bg-neo-bg">
+          <h3 class="font-bold text-xs uppercase mb-1 flex items-center gap-1.5">
+            <span>🐳</span> Immutable Artifacts
+          </h3>
+          <p class="text-gray-700 font-medium">
+            Applications run in standardized Docker containers orchestrated with Kubernetes or Docker Compose to guarantee environment parity across staging and production.
+          </p>
+        </div>
+
+        <div class="border border-black p-3.5 bg-neo-bg">
+          <h3 class="font-bold text-xs uppercase mb-1 flex items-center gap-1.5">
+            <span>⚡</span> Shift-Left CI/CD
+          </h3>
+          <p class="text-gray-700 font-medium">
+            Pipelines in GitHub Actions run matrix tests, security vulnerability scans, and automated builds on every pull request before artifacts hit target environments.
+          </p>
+        </div>
+
+        <div class="border border-black p-3.5 bg-neo-bg">
+          <h3 class="font-bold text-xs uppercase mb-1 flex items-center gap-1.5">
+            <span>📊</span> Full-Stack Observability
+          </h3>
+          <p class="text-gray-700 font-medium">
+            Systems without metrics are blind. Prometheus scrapers, custom Grafana dashboards, and automated alertmanager rules provide continuous health tracking.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Career & Engineering Milestones -->
+    <section class="bg-white border-2 border-black p-6 sm:p-8 shadow-neo mb-10">
+      <h2 class="text-base font-black uppercase tracking-wider mb-6 border-b-2 border-black pb-2 text-black flex items-center gap-2">
+        <span class="w-2.5 h-2.5 bg-neo-secondary inline-block border border-black"></span>
+        <span>Journey & Milestones</span>
+      </h2>
+
+      <div class="space-y-6 border-l-2 border-black ml-3 pl-5 relative">
+        <!-- Milestone 1 -->
+        <div class="relative">
+          <span class="absolute -left-[27px] top-1 w-3.5 h-3.5 bg-neo-accent border-2 border-black rounded-full"></span>
+          <span class="text-xs font-mono font-bold bg-black text-white px-2 py-0.5 uppercase">2025 – 2026</span>
+          <h3 class="text-base font-black uppercase mt-1">Enterprise Cloud & Client Deployments</h3>
+          <p class="text-xs sm:text-sm text-gray-700 font-medium mt-1">
+            Engineered automated CI/CD infrastructures and zero-downtime hosting for commercial platforms (BetterGrowth Solutions, Thikana Dhabla Ghosi, Deep Architects). Built the AI-powered SecureExam Platform with Python FastAPI and WebSockets.
+          </p>
+        </div>
+
+        <!-- Milestone 2 -->
+        <div class="relative">
+          <span class="absolute -left-[27px] top-1 w-3.5 h-3.5 bg-neo-secondary border-2 border-black rounded-full"></span>
+          <span class="text-xs font-mono font-bold bg-black text-white px-2 py-0.5 uppercase">2024</span>
+          <h3 class="text-base font-black uppercase mt-1">Containerization & AWS Deep-Dive</h3>
+          <p class="text-xs sm:text-sm text-gray-700 font-medium mt-1">
+            Designed multi-container Docker Compose microservices, self-hosted Nextcloud private clouds with PostgreSQL and Redis caching, and automated AWS EC2 + S3 deployments.
+          </p>
+        </div>
+
+        <!-- Milestone 3 -->
+        <div class="relative">
+          <span class="absolute -left-[27px] top-1 w-3.5 h-3.5 bg-neo-muted border-2 border-black rounded-full"></span>
+          <span class="text-xs font-mono font-bold bg-black text-white px-2 py-0.5 uppercase">2023</span>
+          <h3 class="text-base font-black uppercase mt-1">Computer Applications & Linux Systems</h3>
+          <p class="text-xs sm:text-sm text-gray-700 font-medium mt-1">
+            Commenced BCA at Govt. Holkar Science College, Indore. Immersed in Linux system internals, Bash shell automation, networking topologies, and version control.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education & Location -->
+    <section class="grid sm:grid-cols-2 gap-6">
+      <div class="bg-white border-2 border-black p-5 shadow-neo">
+        <h3 class="text-xs font-black uppercase tracking-wider mb-2 text-gray-500">Formal Education</h3>
+        <span class="inline-block bg-neo-accent text-white px-2 py-0.5 text-[11px] font-bold uppercase mb-2">
+          2023 — 2026 (Final Year)
+        </span>
+        <h4 class="text-sm font-black uppercase">Bachelor of Computer Applications</h4>
+        <p class="text-xs text-gray-700 font-medium mt-1">
+          Govt. Holkar Science College, Indore, Madhya Pradesh, India.
+        </p>
+      </div>
+
+      <div class="bg-white border-2 border-black p-5 shadow-neo">
+        <h3 class="text-xs font-black uppercase tracking-wider mb-2 text-gray-500">Availability & Status</h3>
+        <span class="inline-flex items-center gap-1.5 bg-emerald-100 text-emerald-800 border border-emerald-300 px-2 py-0.5 text-[11px] font-bold uppercase mb-2">
+          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+          Actively Seeking Roles
+        </span>
+        <h4 class="text-sm font-black uppercase">Cloud & DevOps Engineer</h4>
+        <p class="text-xs text-gray-700 font-medium mt-1">
+          Open to full-time DevOps roles, cloud infrastructure contracts, and technical consulting worldwide.
+        </p>
+      </div>
+    </section>
+
+  </div>
+</BaseLayout>

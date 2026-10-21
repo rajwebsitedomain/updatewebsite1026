@@ -12,6 +12,10 @@ Rajvardhan specializes in architecting zero-downtime infrastructure, automated C
 - **Monitoring & Observability**: Prometheus, Grafana, Linux system administration.
 - **Full-Stack Development**: Python (FastAPI), Nginx, WebSockets, HTML5, Tailwind CSS.
 
+## Key Pages & Documentation
+- [Engineering Profile & About](https://rajvardhansingh.in/about): Detailed engineering journey, technical philosophy, Holkar Science College background, and career milestones.
+- [Privacy Policy](https://rajvardhansingh.in/privacy): Complete data handling, zero-tracking compliance, and Web3Forms encryption standards.
+
 ## Key Projects
 - [DevOps Accelerator](https://rajvardhansingh.in/projects/devops-accelerator): Production CI/CD pipeline simulation with automated GitHub Actions workflows and Dockerized EC2 deployments.
 - [EC2 + S3 Static Hosting](https://rajvardhansingh.in/projects/aws-ec2-s3-static-hosting): High-availability hybrid cloud static hosting with Nginx reverse proxy and CloudFront CDN.
