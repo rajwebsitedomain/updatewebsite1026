@@ -2,7 +2,7 @@
 // Service Worker — Full Offline Support for Rajvardhan's Portfolio
 // ============================================================
 
-const CACHE_NAME = 'raj-portfolio-v1';
+const CACHE_NAME = 'raj-portfolio-v2';
 
 // Static routes and assets to precache on first load
 const PRECACHE_ASSETS = [
@@ -23,6 +23,7 @@ const PRECACHE_ASSETS = [
   '/rajcv.pdf',
   '/llms.txt',
   '/humans.txt',
+  '/tracker.js',
 ];
 
 // ----- INSTALL: Precache all site pages & assets -----
@@ -58,7 +59,7 @@ self.addEventListener('activate', (event) => {
   );
 });
 
-// ----- FETCH: Cache-First with Stale-While-Revalidate -----
+// ----- FETCH -----
 self.addEventListener('fetch', (event) => {
   // Only handle GET requests
   if (event.request.method !== 'GET') return;
@@ -68,11 +69,35 @@ self.addEventListener('fetch', (event) => {
   // Skip browser-extension or non-http(s) requests
   if (!url.protocol.startsWith('http')) return;
 
+  // 1. For HTML navigations: Network-first with cache fallback
+  const isNav = event.request.mode === 'navigate' ||
+    (event.request.headers.get('accept') && event.request.headers.get('accept').includes('text/html'));
+
+  if (isNav) {
+    event.respondWith(
+      fetch(event.request)
+        .then((networkResponse) => {
+          if (networkResponse && networkResponse.status === 200) {
+            const clone = networkResponse.clone();
+            caches.open(CACHE_NAME).then((cache) => {
+              cache.put(event.request, clone);
+            });
+          }
+          return networkResponse;
+        })
+        .catch(() => {
+          return caches.match(event.request).then((cached) => {
+            return cached || caches.match('/') || caches.match('/404');
+          });
+        })
+    );
+    return;
+  }
+
+  // 2. For static assets: Stale-While-Revalidate
   event.respondWith(
     caches.match(event.request).then((cachedResponse) => {
-      // 1. If in cache, return cached response immediately AND revalidate in background
       if (cachedResponse) {
-        // Background fetch to update cache if online
         fetch(event.request)
           .then((networkResponse) => {
             if (networkResponse && networkResponse.status === 200) {
@@ -82,14 +107,10 @@ self.addEventListener('fetch', (event) => {
               });
             }
           })
-          .catch(() => {
-            // Offline - ignore background fetch error
-          });
-
+          .catch(() => {});
         return cachedResponse;
       }
 
-      // 2. Not in cache: fetch from network, then cache response
       return fetch(event.request)
         .then((networkResponse) => {
           if (
@@ -105,24 +126,9 @@ self.addEventListener('fetch', (event) => {
           return networkResponse;
         })
         .catch(() => {
-          // 3. Network failed & not in cache (device is offline)
-          // If HTML navigation request, return cached root or 404
-          if (
-            event.request.headers.get('accept') &&
-            event.request.headers.get('accept').includes('text/html')
-          ) {
-            return (
-              caches.match(event.request) ||
-              caches.match('/') ||
-              caches.match('/404')
-            );
-          }
-
-          // If PDF requested offline, return cached CV
           if (url.pathname.endsWith('.pdf')) {
             return caches.match('/rajcv.pdf');
           }
-
           return new Response('Offline: Content cached when online.', {
             status: 503,
             statusText: 'Service Unavailable (Offline)',
