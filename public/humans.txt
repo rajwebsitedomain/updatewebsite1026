@@ -1,15 +1,12 @@
 /* TEAM */
-Site Owner: Your Name
-Contact: help@rajvardhansingh.in
-Location:  Indore, India
+Developer: Ashutosh (https://github.com/Ashutoshgit47)
+Site Owner & Client: Rajvardhan Singh Badgujar
+Location: Indore, Madhya Pradesh, India
 
-/* SITE */
-Last update: 2026/05/07
-Language: English
-Doctype: HTML5
-IDE: VS Code
-
-/* THANKS */
-Standards: HTML5, CSS3
-Components: Apache, PHP
-Software: WordPress / or your CMS
+/* TECH */
+Framework: Astro 5
+Styling: Tailwind CSS
+Hosting: Apache Server
+Architecture: Jamstack / Static Site Generation (SSG)
+Build Tool: Vite
+SEO: JSON-LD Structured Data, AEO / AI-SEO, Programmatic SEO
