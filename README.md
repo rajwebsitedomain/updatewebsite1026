@@ -172,13 +172,24 @@ npm run preview
 
 ---
 
-## 👤 Author & Contact
+## 👤 Authors & Credits
 
+### 💻 Lead Developer & Engineer
+**Ashutosh Gautam**  
+Cybersecurity Researcher & Offensive Security Specialist  
+Indore, Madhya Pradesh, India  
+
+- **Website**: [ashutosh47.pages.dev](https://ashutosh47.pages.dev/)
+- **GitHub**: [@Ashutoshgit47](https://github.com/Ashutoshgit47)
+- **LinkedIn**: [ashutoshgautam47](https://www.linkedin.com/in/ashutoshgautam47)
+
+### ☁️ Portfolio Subject & Client
 **Rajvardhan Singh Badgujar**  
 Cloud & DevOps Engineer  
 Indore, Madhya Pradesh, India  
 
 - **Website**: [rajvardhansingh.in](https://rajvardhansingh.in)
 - **Email**: [rajvardhancoder@gmail.com](mailto:rajvardhancoder@gmail.com)
-- **LinkedIn**: [linkedin.com/in/rajvardhan-singh-badgujar](https://www.linkedin.com/in/rajvardhan-singh-badgujar/)
-- **GitHub**: [github.com/singhrajvardhan](https://github.com/singhrajvardhan)
+- **LinkedIn**: [rajvardhan-singh-badgujar](https://www.linkedin.com/in/rajvardhan-singh-badgujar/)
+- **GitHub**: [singhrajvardhan](https://github.com/singhrajvardhan)
+

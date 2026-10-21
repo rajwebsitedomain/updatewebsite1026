@@ -1,12 +1,17 @@
 /* TEAM */
-Developer: Ashutosh (https://github.com/Ashutoshgit47)
-Site Owner & Client: Rajvardhan Singh Badgujar
+Developer: Ashutosh Gautam
+Website: https://ashutosh47.pages.dev/
+GitHub: https://github.com/Ashutoshgit47
+LinkedIn: https://www.linkedin.com/in/ashutoshgautam47
+
+Client & Portfolio Owner: Rajvardhan Singh Badgujar
 Location: Indore, Madhya Pradesh, India
 
-/* TECH */
+/* TECH STACK */
 Framework: Astro 5
 Styling: Tailwind CSS
-Hosting: Apache Server
 Architecture: Jamstack / Static Site Generation (SSG)
-Build Tool: Vite
-SEO: JSON-LD Structured Data, AEO / AI-SEO, Programmatic SEO
+Build System: Vite
+SEO: JSON-LD Structured Data, AEO / AI-SEO, Programmatic SEO Case Studies
+Hosting Target: Apache / Cloudflare / Vercel
+Performance: Zero-JS default, sub-second TTFB, 100/100 Core Web Vitals target
