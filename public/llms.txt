@@ -1,0 +1,30 @@
+# Rajvardhan Singh Badgujar — Cloud & DevOps Engineer
+
+> Portfolio, cloud architecture projects, automation workflows, and technical expertise of Rajvardhan Singh Badgujar, Cloud & DevOps Engineer based in Indore, Madhya Pradesh, India.
+
+Rajvardhan specializes in architecting zero-downtime infrastructure, automated CI/CD pipelines, container orchestration, and Infrastructure as Code (IaC) across AWS, Kubernetes, Docker, and Terraform.
+
+## Core Capabilities
+- **Cloud Architecture**: AWS (EC2, S3, VPC, IAM, Lambda, CloudFront), Microsoft Azure.
+- **Containers & Orchestration**: Docker, Docker Compose, Kubernetes (EKS/AKS), Helm.
+- **Infrastructure as Code**: Terraform, AWS CloudFormation, Ansible.
+- **CI/CD & GitOps**: GitHub Actions, Jenkins, ArgoCD.
+- **Monitoring & Observability**: Prometheus, Grafana, Linux system administration.
+- **Full-Stack Development**: Python (FastAPI), Nginx, WebSockets, HTML5, Tailwind CSS.
+
+## Key Projects
+- [DevOps Accelerator](https://rajvardhansingh.in/projects/devops-accelerator): Production CI/CD pipeline simulation with automated GitHub Actions workflows and Dockerized EC2 deployments.
+- [EC2 + S3 Static Hosting](https://rajvardhansingh.in/projects/aws-ec2-s3-static-hosting): High-availability hybrid cloud static hosting with Nginx reverse proxy and CloudFront CDN.
+- [Personal Private Cloud](https://rajvardhansingh.in/projects/personal-private-cloud): Hardened self-hosted Nextcloud infrastructure with Docker Compose, Redis caching, and PostgreSQL.
+- [Infrastructure as Code Pipeline](https://rajvardhansingh.in/projects/iac-cicd-pipeline): Automated multi-tier AWS VPC provisioning with CloudFormation, automated security audits, and GitOps delivery.
+- [SecureExam Platform](https://rajvardhansingh.in/projects/secureexam-platform): Anti-cheating proctoring web application with AI face verification, WebSocket alerts, and FastAPI.
+- [Thikana Dhabla Ghosi](https://rajvardhansingh.in/projects/thikana-dhabla-ghosi): Cultural heritage platform with interactive family genealogy trees and Google Maps integration.
+
+## Contact Information
+- **Name**: Rajvardhan Singh Badgujar
+- **Location**: Indore, Madhya Pradesh, India
+- **Email**: rajvardhancoder@gmail.com
+- **Phone**: +91 97702 89936
+- **Website**: https://rajvardhansingh.in
+- **GitHub**: https://github.com/singhrajvardhan
+- **LinkedIn**: https://www.linkedin.com/in/rajvardhan-singh-badgujar/

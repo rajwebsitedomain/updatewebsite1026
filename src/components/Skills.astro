@@ -1,0 +1,58 @@
+---
+import { skillCategories } from '../data/skills';
+---
+
+<section id="skills" class="py-14 md:py-20 border-b-2 border-black bg-neo-secondary/30 relative">
+  <div class="absolute inset-0 grid-bg"></div>
+
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
+    
+    <!-- Section Header -->
+    <div class="mb-10 text-center sm:text-left">
+      <div class="inline-block bg-black text-white border-2 border-black px-3 py-1 shadow-neo-sm -rotate-1 mb-3">
+        <span class="font-bold uppercase tracking-wider text-xs">02 — Expertise</span>
+      </div>
+      <h2 class="text-2xl sm:text-3xl md:text-4xl font-black uppercase tracking-tight text-black">
+        <span>Technical</span>
+        <span class="bg-white px-2.5 py-0.5 border-2 border-black inline-block rotate-1 shadow-neo-sm ml-1">
+          Stack
+        </span>
+      </h2>
+      <p class="text-xs sm:text-sm font-medium text-gray-700 mt-2 max-w-xl">
+        Production-tested tools, cloud platforms, and automation technologies I work with daily.
+      </p>
+    </div>
+
+    <!-- Skills Categorized Grid -->
+    <div class="space-y-6">
+      {skillCategories.map((category) => (
+        <div class="bg-white border-2 border-black p-4 sm:p-5 shadow-neo">
+          <h3 class="text-xs font-black uppercase tracking-widest text-gray-500 mb-3 flex items-center gap-2">
+            <span class="w-2 h-2 bg-neo-accent inline-block border border-black"></span>
+            <span>{category.title}</span>
+          </h3>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+            {category.skills.map((skill) => (
+              <div class="border border-black bg-neo-bg p-3 shadow-neo-sm hover:-translate-y-0.5 hover:shadow-neo transition-all flex items-start gap-3">
+                <span class="text-xl shrink-0" aria-hidden="true">{skill.icon}</span>
+                <div class="min-w-0">
+                  <div class="flex items-center justify-between">
+                    <span class="font-bold text-xs uppercase tracking-wide text-black">{skill.name}</span>
+                    <span class="text-[10px] font-mono text-gray-500">{skill.level}%</span>
+                  </div>
+                  <p class="text-[11px] text-gray-600 truncate mt-0.5" title={skill.detail}>{skill.detail}</p>
+                  <!-- Progress bar -->
+                  <div class="w-full bg-gray-200 h-1.5 border border-black mt-2 overflow-hidden">
+                    <div class="bg-neo-accent h-full" style={`width: ${skill.level}%`}></div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>

@@ -1,0 +1,125 @@
+---
+export interface Props {
+  title?: string;
+  description?: string;
+  canonicalUrl?: string;
+  ogImage?: string;
+  type?: 'website' | 'article';
+  jsonLd?: object | object[];
+}
+
+const {
+  title = 'Rajvardhan Singh Badgujar | Cloud & DevOps Engineer | Indore, India',
+  description = 'Rajvardhan Singh Badgujar is a Cloud & DevOps Engineer from Indore, India. Specializing in AWS, Kubernetes, Docker, Terraform, CI/CD pipelines, and zero-downtime infrastructure.',
+  canonicalUrl = Astro.url.href,
+  ogImage = '/logo.png',
+  type = 'website',
+  jsonLd,
+} = Astro.props;
+
+const siteUrl = 'https://rajvardhansingh.in';
+const fullCanonicalUrl = canonicalUrl.startsWith('http') ? canonicalUrl : `${siteUrl}${canonicalUrl}`;
+const fullOgImage = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}`;
+
+const defaultPersonSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Rajvardhan Singh Badgujar',
+  alternateName: 'Rajvardhan Singh',
+  url: siteUrl,
+  image: fullOgImage,
+  email: 'rajvardhancoder@gmail.com',
+  telephone: '+919770289936',
+  jobTitle: 'Cloud & DevOps Engineer',
+  description: description,
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: '75, Mahaveer Bagh, Navlakh',
+    addressLocality: 'Indore',
+    addressRegion: 'Madhya Pradesh',
+    postalCode: '452001',
+    addressCountry: 'IN',
+  },
+  sameAs: [
+    'https://github.com/singhrajvardhan',
+    'https://www.linkedin.com/in/rajvardhan-singh-badgujar/',
+    'https://instagram.com/webbyraj',
+  ],
+  knowsAbout: [
+    'Amazon Web Services (AWS)',
+    'Kubernetes',
+    'Docker',
+    'Terraform',
+    'CI/CD Pipelines',
+    'GitHub Actions',
+    'Jenkins',
+    'Ansible',
+    'ArgoCD',
+    'Grafana',
+    'Prometheus',
+    'Linux System Administration',
+    'Infrastructure as Code',
+    'Cloud Architecture',
+  ],
+  alumniOf: {
+    '@type': 'EducationalOrganization',
+    name: 'Govt. Holkar Science College',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Indore',
+      addressRegion: 'Madhya Pradesh',
+      addressCountry: 'IN',
+    },
+  },
+};
+
+const schemas = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [defaultPersonSchema];
+---
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title}</title>
+
+  <!-- Canonical & Metadata -->
+  <link rel="canonical" href={fullCanonicalUrl} />
+  <meta name="description" content={description} />
+  <meta name="keywords" content="Rajvardhan Singh Badgujar, Cloud Engineer Indore, DevOps Engineer India, AWS Engineer, Kubernetes, Terraform IaC, Docker, CI/CD, GitHub Actions, Jenkins, GitOps, Linux, BCA Indore" />
+  <meta name="author" content="Rajvardhan Singh Badgujar" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="theme-color" content="#FFFDF5" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content={type} />
+  <meta property="og:site_name" content="Rajvardhan Singh Badgujar" />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={fullCanonicalUrl} />
+  <meta property="og:image" content={fullOgImage} />
+  <meta property="og:locale" content="en_IN" />
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@singhrajvardhan" />
+  <meta name="twitter:creator" content="@singhrajvardhan" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={fullOgImage} />
+
+  <!-- Geo & Local SEO -->
+  <meta name="geo.region" content="IN-MP" />
+  <meta name="geo.placename" content="Indore, Madhya Pradesh, India" />
+  <meta name="geo.position" content="22.7196;75.8577" />
+  <meta name="ICBM" content="22.7196, 75.8577" />
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" href="/logo.png" />
+
+  <!-- AI Crawler Knowledge Link -->
+  <link rel="author" href="/llms.txt" type="text/plain" />
+
+  <!-- Structured Data JSON-LD -->
+  {schemas.map((schema) => (
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  ))}
+</head>

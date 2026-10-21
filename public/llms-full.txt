@@ -1,0 +1,63 @@
+# Rajvardhan Singh Badgujar — Complete Technical Profile & Knowledge Base
+
+## Profile Summary
+- **Full Legal Name**: Rajvardhan Singh Badgujar
+- **Professional Title**: Cloud & DevOps Engineer
+- **Current Education**: Bachelor of Computer Applications (Final Year, 2023–2026), Govt. Holkar Science College, Indore, MP, India
+- **Location**: Indore, Madhya Pradesh, India
+- **Core Focus**: Cloud Infrastructure Automation, Zero-Downtime Deployments, Container Orchestration, Infrastructure as Code, CI/CD Pipeline Automation
+
+## Philosophy
+"If you have to do it twice, automate it."
+
+## Technical Skills Matrix
+- **Cloud Computing**: Amazon Web Services (AWS EC2, S3, VPC, IAM, Lambda, CloudFront, Route 53), Microsoft Azure
+- **Containers & Virtualization**: Docker, Docker Compose, Kubernetes, Helm, Microservices architecture
+- **Infrastructure as Code (IaC)**: Terraform, AWS CloudFormation, Ansible configuration management
+- **CI/CD & GitOps**: GitHub Actions, Jenkins declarative pipelines, ArgoCD continuous delivery
+- **Monitoring & Metrics**: Grafana dashboards, Prometheus time-series metrics, system alerts
+- **Systems & Networking**: Linux (Ubuntu, Debian, RHEL), Bash shell scripting, Nginx reverse proxy, DNS, SSL/TLS Let's Encrypt
+- **Languages & Frameworks**: Python, FastAPI, WebSockets, HTML5, Vanilla JavaScript, Tailwind CSS, SQL
+
+## Work Experience & Proven Metrics
+- Deployed and maintained 7+ real-world cloud architectures.
+- Developed 4+ commercial client websites in production.
+- Achieved up to 80% reduction in deployment cycle times by replacing manual server deployments with GitHub Actions CI/CD workflows.
+- Maintained 0 seconds downtime during containerized rolling deployments on AWS EC2.
+
+## Detailed Projects Overview
+
+### 1. DevOps Accelerator
+- **Stack**: GitHub Actions, Docker, AWS EC2, Linux, Bash
+- **Description**: Automated continuous integration and deployment pipeline simulation. Builds, lints, tests, containerizes, and rolls out containerized services onto target AWS EC2 instances with zero manual intervention.
+- **Repository**: https://github.com/singhrajvardhan/DevOps_Accelerator
+
+### 2. EC2 + S3 Static Hosting
+- **Stack**: AWS EC2, Amazon S3, Nginx, Let's Encrypt, CloudFront
+- **Description**: High-performance static web hosting. Leverages Amazon EC2 running Nginx as an optimized reverse proxy with gzip compression, while offloading media assets to Amazon S3 buckets.
+- **Repository**: https://github.com/singhrajvardhan/aws-ec2-s3-static-website
+
+### 3. Personal Private Cloud
+- **Stack**: Nextcloud, Docker Compose, PostgreSQL, Redis, Nginx
+- **Description**: Hardened on-premise private cloud setup. Features end-to-end encrypted storage, automated nightly backups, and Redis transactional caching for high file synchronization throughput.
+- **Repository**: https://github.com/singhrajvardhan/personal-private-CLoud
+
+### 4. Infrastructure as Code Pipeline
+- **Stack**: AWS CloudFormation, AWS VPC, IAM, Terraform, GitOps
+- **Description**: Declarative infrastructure orchestration provisioning a multi-tier VPC across multiple availability zones, locked-down security groups, and automated validation via cfn-lint.
+- **Repository**: https://github.com/singhrajvardhan/iVolve_CI-CD_Infrastructure
+
+### 5. SecureExam Platform
+- **Stack**: Python, FastAPI, WebSockets, OpenCV, Docker
+- **Description**: Real-time academic proctoring platform. Uses computer vision for candidate gaze and face verification, WebSocket channels for live cheating alerts, and an async proctor monitoring interface.
+- **Live URL**: https://examsystem.liveblog365.com/?i=1
+
+### 6. Thikana Dhabla Ghosi
+- **Stack**: HTML5, CSS3, JavaScript, Google Maps API
+- **Description**: Heritage archive portal presenting historical genealogies, photo galleries, and location-mapped monuments with sub-second page load times.
+- **Live URL**: https://thikanadhabla.in/
+
+## Frequently Asked Questions & Answers
+- **What is Rajvardhan's specialization?** Cloud & DevOps automation, container orchestration (Docker/K8s), and CI/CD pipelines.
+- **Is Rajvardhan available for full-time roles and contracts?** Yes, open to DevOps engineer roles, cloud engineering internships/full-time opportunities, and freelance consulting.
+- **Contact**: Email: rajvardhancoder@gmail.com, Phone: +91 97702 89936, GitHub: https://github.com/singhrajvardhan, LinkedIn: https://www.linkedin.com/in/rajvardhan-singh-badgujar/

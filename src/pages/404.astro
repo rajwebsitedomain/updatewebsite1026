@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="404 — Page Not Found · Rajvardhan Singh Badgujar"
+  description="The requested page could not be located on rajvardhansingh.in."
+>
+  <div class="pt-32 pb-24 max-w-xl mx-auto px-4 text-center">
+    <div class="bg-white border-2 border-black p-8 sm:p-12 shadow-neo">
+      <span class="block text-6xl sm:text-7xl font-black text-neo-accent mb-2">404</span>
+      <h1 class="text-xl sm:text-2xl font-black uppercase tracking-tight text-black mb-3">
+        Pipeline Break: Page Not Found
+      </h1>
+      <p class="text-xs sm:text-sm text-gray-700 font-medium leading-relaxed mb-6">
+        The route you requested does not exist or has been relocated during infrastructure optimization.
+      </p>
+
+      <a
+        href="/"
+        class="bg-black text-white border-2 border-black px-6 py-2.5 font-bold uppercase text-xs tracking-wider shadow-neo-sm hover:bg-neo-secondary hover:text-black transition-all inline-flex items-center gap-2"
+      >
+        <span>← Return to Home</span>
+      </a>
+    </div>
+  </div>
+</BaseLayout>

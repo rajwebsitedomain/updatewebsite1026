@@ -1,0 +1,56 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import About from '../components/About.astro';
+import Skills from '../components/Skills.astro';
+import Projects from '../components/Projects.astro';
+import Certifications from '../components/Certifications.astro';
+import FAQ from '../components/FAQ.astro';
+import Contact from '../components/Contact.astro';
+import { faqs } from '../data/faq';
+import { projects } from '../data/projects';
+
+// Structured FAQPage Schema for AI engines & Google rich results
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((faq) => ({
+    '@type': 'Question',
+    name: faq.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: faq.answer,
+    },
+  })),
+};
+
+// ItemList schema for projects
+const projectListSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Rajvardhan Singh Badgujar – Cloud & DevOps Engineering Projects',
+  itemListElement: projects.map((project, idx) => ({
+    '@type': 'ListItem',
+    position: idx + 1,
+    name: project.title,
+    description: project.shortDescription,
+    url: `https://rajvardhansingh.in/projects/${project.slug}`,
+  })),
+};
+
+const schemas = [faqSchema, projectListSchema];
+---
+
+<BaseLayout
+  title="Rajvardhan Singh Badgujar | Cloud & DevOps Engineer | Indore, India"
+  description="Rajvardhan Singh Badgujar is a Cloud & DevOps Engineer from Indore, India. Specializing in AWS, Kubernetes, Docker, Terraform, CI/CD automation, and zero-downtime infrastructure."
+  jsonLd={schemas}
+>
+  <Hero />
+  <About />
+  <Skills />
+  <Projects />
+  <Certifications />
+  <FAQ />
+  <Contact />
+</BaseLayout>

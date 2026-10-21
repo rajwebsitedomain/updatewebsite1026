@@ -1,0 +1,185 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { projects, type Project } from '../../data/projects';
+
+export function getStaticPaths() {
+  return projects.map((project) => ({
+    params: { slug: project.slug },
+    props: { project },
+  }));
+}
+
+interface Props {
+  project: Project;
+}
+
+const { project } = Astro.props;
+
+const pageTitle = `${project.title} — Cloud Architecture Case Study | Rajvardhan Singh Badgujar`;
+const pageDescription = `${project.shortDescription} Built by Rajvardhan Singh Badgujar with ${project.tags.join(', ')}.`;
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://rajvardhansingh.in/' },
+    { '@type': 'ListItem', position: 2, name: 'Projects', item: 'https://rajvardhansingh.in/#projects' },
+    { '@type': 'ListItem', position: 3, name: project.title, item: `https://rajvardhansingh.in/projects/${project.slug}` },
+  ],
+};
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'TechArticle',
+  headline: project.title,
+  description: project.fullDescription,
+  author: {
+    '@type': 'Person',
+    name: 'Rajvardhan Singh Badgujar',
+    url: 'https://rajvardhansingh.in',
+  },
+  keywords: project.tags.join(', '),
+  url: `https://rajvardhansingh.in/projects/${project.slug}`,
+};
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  canonicalUrl={`/projects/${project.slug}`}
+  type="article"
+  jsonLd={[breadcrumbSchema, articleSchema]}
+>
+  <div class="pt-24 pb-16 md:pt-32 md:pb-24 max-w-4xl mx-auto px-4 sm:px-6">
+    
+    <!-- Breadcrumbs -->
+    <nav class="mb-6 flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-gray-500" aria-label="Breadcrumb">
+      <a href="/" class="hover:text-black">Home</a>
+      <span>/</span>
+      <a href="/#projects" class="hover:text-black">Projects</a>
+      <span>/</span>
+      <span class="text-black bg-neo-secondary px-1.5 py-0.5 border border-black">{project.title}</span>
+    </nav>
+
+    <!-- Project Header Box -->
+    <header class="bg-white border-2 border-black p-6 sm:p-8 shadow-neo mb-8">
+      <div class="flex items-center gap-2 mb-3">
+        <span class="bg-black text-white px-2.5 py-0.5 text-xs font-mono font-bold">
+          #{project.number}
+        </span>
+        <span class="bg-neo-secondary text-black border border-black px-2.5 py-0.5 text-xs font-bold uppercase tracking-wider">
+          {project.category}
+        </span>
+      </div>
+
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight text-black mb-4">
+        {project.title}
+      </h1>
+
+      <p class="text-base sm:text-lg font-medium leading-relaxed text-gray-800 mb-6">
+        {project.fullDescription}
+      </p>
+
+      <!-- Key Metrics -->
+      <div class="grid grid-cols-3 gap-3 border-y-2 border-black py-4 mb-6">
+        {project.metrics.map((metric) => (
+          <div class="text-center">
+            <span class="block text-xl sm:text-2xl font-black text-neo-accent">{metric.value}</span>
+            <span class="block text-[10px] sm:text-xs font-bold uppercase tracking-wider text-gray-600">{metric.label}</span>
+          </div>
+        ))}
+      </div>
+
+      <!-- Tech Stack Badges -->
+      <div>
+        <span class="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-2">Technologies Used:</span>
+        <div class="flex flex-wrap gap-2">
+          {project.tags.map((tag) => (
+            <span class="bg-neo-bg border border-black px-2.5 py-1 text-xs font-bold uppercase text-black shadow-neo-sm">
+              {tag}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      <!-- Links -->
+      <div class="flex flex-wrap gap-3 mt-6 pt-6 border-t border-gray-200">
+        {project.githubUrl && (
+          <a
+            href={project.githubUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="bg-black text-white border-2 border-black px-5 py-2.5 font-bold uppercase text-xs tracking-wider shadow-neo-sm hover:bg-gray-800 transition-all inline-flex items-center gap-2"
+          >
+            <span>View Source Repository</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+            </svg>
+          </a>
+        )}
+
+        {project.liveUrl && (
+          <a
+            href={project.liveUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="bg-neo-accent text-white border-2 border-black px-5 py-2.5 font-bold uppercase text-xs tracking-wider shadow-neo-sm hover:bg-red-600 transition-all inline-flex items-center gap-2"
+          >
+            <span>Visit Live Platform</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+            </svg>
+          </a>
+        )}
+      </div>
+    </header>
+
+    <!-- Architecture & Implementation Breakdown -->
+    <div class="grid md:grid-cols-2 gap-6 mb-8">
+      
+      <!-- Implementation Highlights -->
+      <div class="bg-white border-2 border-black p-6 shadow-neo">
+        <h2 class="text-sm font-black uppercase tracking-wider mb-4 border-b-2 border-black pb-2 text-black flex items-center gap-2">
+          <span class="w-2.5 h-2.5 bg-neo-accent inline-block border border-black"></span>
+          <span>Key Implementation Features</span>
+        </h2>
+        <ul class="space-y-3 text-xs sm:text-sm font-medium text-gray-800">
+          {project.highlights.map((highlight) => (
+            <li class="flex items-start gap-2.5">
+              <span class="bg-neo-secondary border border-black px-1.5 py-0.5 text-xs font-bold shrink-0 mt-0.5">✓</span>
+              <span>{highlight}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Architecture Pipeline Flow -->
+      <div class="bg-white border-2 border-black p-6 shadow-neo">
+        <h2 class="text-sm font-black uppercase tracking-wider mb-4 border-b-2 border-black pb-2 text-black flex items-center gap-2">
+          <span class="w-2.5 h-2.5 bg-neo-mint inline-block border border-black"></span>
+          <span>Architectural Flow</span>
+        </h2>
+        <ol class="space-y-3 text-xs sm:text-sm font-mono text-gray-800">
+          {project.architecture.map((step, idx) => (
+            <li class="flex items-start gap-2.5">
+              <span class="bg-black text-white px-1.5 py-0.5 text-xs font-bold shrink-0">{idx + 1}</span>
+              <span>{step}</span>
+            </li>
+          ))}
+        </ol>
+      </div>
+
+    </div>
+
+    <!-- Back to All Projects CTA -->
+    <div class="text-center pt-4">
+      <a
+        href="/#projects"
+        class="bg-white text-black border-2 border-black px-6 py-2.5 font-bold uppercase text-xs tracking-wider shadow-neo-sm hover:bg-neo-secondary transition-all inline-flex items-center gap-2"
+      >
+        <span>← Back to All Projects</span>
+      </a>
+    </div>
+
+  </div>
+</BaseLayout>
