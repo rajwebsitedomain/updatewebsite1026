@@ -30,7 +30,7 @@ export const projects: Project[] = [
     metrics: [
       { label: 'Deployment Speed', value: '4x Faster' },
       { label: 'Downtime', value: '0 Seconds' },
-      { label: 'Test Coverage Automated', value: '100%' },
+      { label: 'Test Coverage', value: '100%' },
     ],
     highlights: [
       'Automated multi-stage Docker builds reducing image sizes by 60%',
